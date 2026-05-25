@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dani Sugar Factory — Handcrafted cookies, baked the day they ship</title>
+  <meta name="description" content="Eight cookie flavors, $6 each, hand-baked in our Jacksonville kitchen and shipped the same day. Cookies & cream, chocolate chip, strawberry, oatmeal raisin, snickerdoodle, double chocolate, peanut butter, sugar cookie." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍪%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,200..900,0..100,0..1;1,9..144,200..900,0..100,0..1&family=DM+Sans:opsz,wght@9..40,300..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================
+       SPLASH — cursor-driven candy lens on wordmark
+       ============================================ -->
+  <section id="splash" class="splash" aria-label="Welcome to Dani Sugar Factory">
+    <div class="splash-backdrop" aria-hidden="true"></div>
+    <div class="splash-haze" aria-hidden="true"></div>
+
+    <div class="splash-content">
+      <p class="splash-eyebrow">Est. 2024 · Jacksonville, FL · Hand-mixed daily</p>
+
+      <h1 class="wordmark" aria-label="Dani Sugar Factory">
+        <span class="wordmark-base" aria-hidden="true">Dani Sugar Factory</span>
+        <span class="wordmark-candy" aria-hidden="true">Dani Sugar Factory</span>
+      </h1>
+
+      <p class="splash-subtitle">Move your cursor across the words.<br/>Watch the sugar wake up.</p>
+
+      <a href="#shop" id="enter-btn" class="enter-btn" aria-label="Enter the shop">
+        <span class="enter-btn__base">Enter the Factory</span>
+        <span class="enter-btn__candy" aria-hidden="true">Enter the Factory</span>
+        <span class="enter-btn__arrow" aria-hidden="true">→</span>
+      </a>
+
+      <p class="splash-foot">Ships nationwide · Order before 2pm ET for next-day</p>
+    </div>
+
+    <div class="cursor-pearl" aria-hidden="true"></div>
+  </section>
+
+
+  <!-- ============================================
+       MAIN SHOP — 10 sections, zero empty beige
+       ============================================ -->
+  <main id="shop" class="shop" aria-label="Cookie shop">
+
+    <!-- Section 1: Sticky header -->
+    <header class="topnav">
+      <div class="topnav__inner">
+        <a href="#shop" class="topnav__logo">Dani <em>Sugar</em> Factory</a>
+        <nav class="topnav__links" aria-label="Primary">
+          <a href="#menu">Menu</a>
+          <a href="#build">Build a box</a>
+          <a href="#story">Our story</a>
+          <a href="#visit">Visit</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <button class="topnav__cart" aria-label="Open cart">
+          <span class="topnav__cart-icon" aria-hidden="true">🍪</span>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Section 2: Shop hero band -->
+    <section class="shop-hero">
+      <div class="shop-hero__inner">
+        <p class="shop-hero__eyebrow">This week's batches</p>
+        <h2 class="shop-hero__title">Hand-baked cookies.<br/><em>Eight flavors</em>. Six dollars.</h2>
+        <p class="shop-hero__copy">Mixed by hand the morning of, baked while you sleep, in a truck before lunch. No frozen dough. No preservatives. No subscriptions. Just butter, eggs, and the same scoop Dani's used since day one.</p>
+        <div class="shop-hero__ctas">
+          <a href="#build" class="btn btn--primary">Build my box</a>
+          <a href="#menu" class="btn btn--ghost">See the menu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Trust strip -->
+    <section class="trust">
+      <div class="trust__inner">
+        <div class="trust__item">
+          <span class="trust__icon" aria-hidden="true">🧈</span>
+          <strong>100% real butter</strong>
+          <span class="trust__sub">Plugrá, every batch</span>
+        </div>
+        <div class="trust__item">
+          <span class="trust__icon" aria-hidden="true">🥚</span>
+          <strong>Cage-free eggs</strong>
+          <span class="trust__sub">From Ocala, FL</span>
+        </div>
+        <div class="trust__item">
+          <span class="trust__icon" aria-hidden="true">🌾</span>
+          <strong>Zero preservatives</strong>
+          <span class="trust__sub">Ships the day baked</span>
+        </div>
+        <div class="trust__item">
+          <span class="trust__icon" aria-hidden="true">🚚</span>
+          <strong>Free ship over $40</strong>
+          <span class="trust__sub">FedEx Overnight</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: The menu (cookie grid) -->
+    <section class="menu" id="menu">
+      <div class="menu__head">
+        <p class="menu__eyebrow">The menu</p>
+        <h2 class="menu__title">Eight cookies. <em>Pick any combination.</em></h2>
+        <p class="menu__copy">Build your own box of 6, 12, or 24. Same price across the board — $6 per cookie, however you mix them.</p>
+      </div>
+      <div id="product-grid" class="menu__grid"></div>
+    </section>
+
+    <!-- Section 5: Build a Box -->
+    <section class="build" id="build">
+      <div class="build__inner">
+        <div class="build__copy">
+          <p class="build__eyebrow">Build a box</p>
+          <h2 class="build__title">Pick a size.<br/><em>We'll handle the rest.</em></h2>
+          <p class="build__lede">Boxes ship overnight in our signature cream-and-cherry kraft tins. Add a handwritten gift note at checkout — free, no upsell.</p>
+        </div>
+        <div class="build__sizes">
+          <button class="size-card" data-size="6">
+            <span class="size-card__count">6</span>
+            <span class="size-card__label">starter box</span>
+            <span class="size-card__price">$36</span>
+            <span class="size-card__hint">Good for 2 people, weekday treat</span>
+          </button>
+          <button class="size-card size-card--featured" data-size="12">
+            <span class="size-card__badge">Most popular</span>
+            <span class="size-card__count">12</span>
+            <span class="size-card__label">family box</span>
+            <span class="size-card__price">$72</span>
+            <span class="size-card__hint">Free shipping kicks in here</span>
+          </button>
+          <button class="size-card" data-size="24">
+            <span class="size-card__count">24</span>
+            <span class="size-card__label">gifting box</span>
+            <span class="size-card__price">$144</span>
+            <span class="size-card__hint">Includes 2 free cookies + note</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Our Story -->
+    <section class="story" id="story">
+      <div class="story__inner">
+        <div class="story__copy">
+          <p class="story__eyebrow">Our story</p>
+          <h2 class="story__title">Dani started baking out of a <em>600-square-foot apartment kitchen</em>.</h2>
+          <p class="story__lede">What began as a Sunday-night habit — eight cookies, four neighbors, one stand mixer — became a side hustle, then a Saturday farmer's market table, then this.</p>
+          <p class="story__line">We still use the same mixer. Same butter from the same dairy in north Florida. Same hand-portioned scoop. No frozen dough, no warehouse, no preservatives. If you order on Tuesday, it's baked Wednesday morning and on a truck before lunch. That's the whole bit.</p>
+          <div class="story__stats">
+            <div><strong>2024</strong><span>Year one</span></div>
+            <div><strong>50</strong><span>Max batch</span></div>
+            <div><strong>8</strong><span>Recipes</span></div>
+            <div><strong>1</strong><span>Pair of hands</span></div>
+          </div>
+        </div>
+        <div class="story__media" aria-hidden="true">
+          <div class="story__photo story__photo--main"></div>
+          <div class="story__photo story__photo--inset-1"></div>
+          <div class="story__photo story__photo--inset-2"></div>
+          <span class="story__pull-quote">"The dough has to sit overnight. There's no shortcut for that."</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Testimonials -->
+    <section class="testimonials">
+      <div class="testimonials__inner">
+        <p class="testimonials__eyebrow">What people say</p>
+        <h2 class="testimonials__title">Sold out four weeks running. <em>Here's why.</em></h2>
+        <div class="testimonials__grid">
+          <figure class="quote">
+            <div class="quote__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"The cookies & cream cookie ruined every other cookie for me. I'm not exaggerating. The chunks are real Oreos, the dough is salt-balanced, and somehow they arrive still soft."</blockquote>
+            <figcaption>— Maya R. · <em>repeat customer</em></figcaption>
+          </figure>
+          <figure class="quote">
+            <div class="quote__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"Ordered for a corporate event. They showed up perfectly packed, every cookie identical, the handwritten note made our CEO tear up. Will use for every client gift from now on."</blockquote>
+            <figcaption>— David K. · <em>head of marketing, RedRock Studio</em></figcaption>
+          </figure>
+          <figure class="quote">
+            <div class="quote__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"I'm a pastry chef. I know cookies. These are the real deal — proper butter, proper crumb, properly under-baked center. Dani knows what she's doing."</blockquote>
+            <figcaption>— Sara T. · <em>pastry chef · Atlanta</em></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: FAQ -->
+    <section class="faq" id="faq">
+      <div class="faq__inner">
+        <p class="faq__eyebrow">Frequently asked</p>
+        <h2 class="faq__title">Everything you'd want <em>to know first</em>.</h2>
+        <div class="faq__list">
+          <details class="faq__item">
+            <summary>How long do cookies stay fresh?</summary>
+            <p>Best within 5 days at room temp in a sealed bag. They freeze beautifully for up to 3 months — just thaw on the counter for 30 minutes.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Do you ship nationwide?</summary>
+            <p>Yes, FedEx Standard Overnight to every state in the continental US. Free over $40 (any size 12+ box clears that). Hawaii + Alaska on request.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Are any of the cookies vegan or gluten-free?</summary>
+            <p>Not yet — we keep the menu small to keep quality consistent. The sugar cookie and chocolate chip can be made dairy-free on request (use the order notes), but it's not the default.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Can I customize a box for a wedding or office event?</summary>
+            <p>Yes. Boxes of 10+ qualify for event pricing. Give us 2 weeks notice, email <a href="mailto:hello@danisugarfactory.com">hello@danisugarfactory.com</a> with the date and headcount, we'll send back a quote within 24 hours.</p>
+          </details>
+          <details class="faq__item">
+            <summary>What's the gluten-free situation?</summary>
+            <p>Our kitchen is not certified gluten-free — we bake with wheat flour and use a shared stand mixer. If you have a serious allergy, please don't risk it.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Do you have a storefront I can visit?</summary>
+            <p>A pickup window in Riverside, Jacksonville — open Wed through Sun, 10am to 6pm. Exact address shared in your order confirmation. Walk-ins welcome for whatever didn't ship that morning.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Visit / Pickup -->
+    <section class="visit" id="visit">
+      <div class="visit__inner">
+        <p class="visit__eyebrow">Come say hi</p>
+        <h2 class="visit__title">Pickup window <em>open Wed–Sun</em>.</h2>
+        <div class="visit__grid">
+          <div class="visit__card">
+            <h4>Where</h4>
+            <p>Riverside, Jacksonville FL</p>
+            <p class="visit__muted">Exact address shared in your order confirmation.</p>
+          </div>
+          <div class="visit__card">
+            <h4>When</h4>
+            <p>Wed – Sun · 10am – 6pm</p>
+            <p class="visit__muted">Closed Monday + Tuesday for prep.</p>
+          </div>
+          <div class="visit__card">
+            <h4>Shipping</h4>
+            <p>FedEx Standard Overnight</p>
+            <p class="visit__muted">Order by 2pm ET, ships next morning.</p>
+          </div>
+          <div class="visit__card">
+            <h4>Events</h4>
+            <p>Weddings, offices, gifting</p>
+            <p class="visit__muted">10+ box minimum · 2 weeks notice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Newsletter -->
+    <section class="newsletter">
+      <div class="newsletter__inner">
+        <h2 class="newsletter__title">New flavor every season.<br/><em>Get the heads up first.</em></h2>
+        <p class="newsletter__copy">One short email a month. New cookie, behind-the-counter photo, occasional 10%-off code. No spam, never sold.</p>
+        <form class="newsletter__form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓'; this.querySelector('button').disabled = true;">
+          <input type="email" class="newsletter__input" placeholder="your@email.com" required aria-label="Email address" />
+          <button type="submit" class="newsletter__btn">Send me the menu</button>
+        </form>
+        <p class="newsletter__fine">By signing up you agree to receive Dani Sugar Factory emails. Unsubscribe anytime.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="footer__mark">Dani <em>Sugar</em> Factory</span>
+          <p class="footer__tagline">Eight cookies. One kitchen. Real butter, every time.</p>
+        </div>
+        <div class="footer__cols">
+          <div>
+            <h4>Shop</h4>
+            <a href="#menu">The menu</a>
+            <a href="#build">Build a box</a>
+            <a href="#visit">Gifting</a>
+          </div>
+          <div>
+            <h4>Visit</h4>
+            <a href="#visit">Jacksonville, FL</a>
+            <a href="#visit">Hours</a>
+            <a href="#visit">Private events</a>
+          </div>
+          <div>
+            <h4>Hello</h4>
+            <a href="mailto:hello@danisugarfactory.com">hello@danisugarfactory.com</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="TikTok">TikTok</a>
+          </div>
+        </div>
+      </div>
+      <p class="footer__copy">© 2026 Dani Sugar Factory · Jacksonville, FL · Made with absurd amounts of butter.</p>
+    </footer>
+  </main>
+
+  <!-- Transition curtain -->
+  <div id="curtain" class="curtain" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <script type="module" src="main.js"></script>
+  <script type="module" src="ecom.js"></script>
+</body>
+</html>

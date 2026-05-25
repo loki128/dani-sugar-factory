@@ -14,28 +14,24 @@
 <body>
 
   <!-- ============================================
-       SPLASH — cursor-driven candy lens on wordmark
+       SPLASH — clean serif base + cursor-revealed candy overlay
        ============================================ -->
   <section id="splash" class="splash" aria-label="Welcome to Dani Sugar Factory">
     <div class="splash-backdrop" aria-hidden="true"></div>
-    <div class="splash-haze" aria-hidden="true"></div>
+
+    <!-- The full candy composition (wordmark + ENTER button + decorations),
+         positioned to span the splash content area. Revealed only inside
+         the cursor mask. -->
+    <div class="candy-overlay" aria-hidden="true"></div>
 
     <div class="splash-content">
       <p class="splash-eyebrow">Est. 2024 · Jacksonville, FL · Hand-mixed daily</p>
-
-      <h1 class="wordmark" aria-label="Dani Sugar Factory">
-        <span class="wordmark-base" aria-hidden="true">Dani Sugar Factory</span>
-        <span class="wordmark-candy" aria-hidden="true">Dani Sugar Factory</span>
-      </h1>
-
-      <p class="splash-subtitle">Move your cursor across the words.<br/>Watch the sugar wake up.</p>
-
+      <h1 class="wordmark">Dani Sugar Factory</h1>
+      <p class="splash-subtitle">Move your cursor across the page.<br/>Watch the sugar wake up.</p>
       <a href="#shop" id="enter-btn" class="enter-btn" aria-label="Enter the shop">
-        <span class="enter-btn__base">Enter the Factory</span>
-        <span class="enter-btn__candy" aria-hidden="true">Enter the Factory</span>
+        <span class="enter-btn__label">Enter the Factory</span>
         <span class="enter-btn__arrow" aria-hidden="true">→</span>
       </a>
-
       <p class="splash-foot">Ships nationwide · Order before 2pm ET for next-day</p>
     </div>
 

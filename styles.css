@@ -66,27 +66,43 @@ em { font-style: italic; }
   cursor: none;
 }
 
-/* Clean backdrop — no busy landscape. Soft pink-cream gradient with subtle vignette. */
+/* Clean backdrop — soft pink-cream gradient. No literal landscape, no dot patterns. */
 .splash-backdrop {
   position: absolute;
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse 90% 70% at 50% 35%, #FFF6E9 0%, #FBE2C8 55%, #F2C9A6 100%),
-    linear-gradient(180deg, transparent 0%, rgba(195, 61, 88, 0.06) 100%);
+    radial-gradient(ellipse 95% 75% at 50% 38%, #FFF6E9 0%, #FBE0C5 60%, #EFC4A0 100%);
 }
 
-.splash-haze {
+/* Candy overlay — the full candy composition, revealed only inside the cursor lens.
+   Default state: hidden. Cursor hover: visible in a soft radial zone around cursor. */
+.candy-overlay {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 4;
   pointer-events: none;
-  background:
-    radial-gradient(circle 380px at 14% 26%, rgba(255, 183, 229, 0.4) 0%, transparent 65%),
-    radial-gradient(circle 320px at 88% 18%, rgba(212, 160, 68, 0.28) 0%, transparent 65%),
-    radial-gradient(circle 420px at 22% 88%, rgba(255, 205, 168, 0.42) 0%, transparent 70%),
-    radial-gradient(circle 360px at 84% 82%, rgba(228, 96, 117, 0.22) 0%, transparent 70%);
-  opacity: 0.85;
+  background-image: url("assets/textures/wordmark-candy.webp");
+  background-repeat: no-repeat;
+  background-position: center 48%;
+  background-size: min(92vw, 1280px) auto;
+  -webkit-mask-image: radial-gradient(
+    circle var(--lens-radius) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    black 0%,
+    black 28%,
+    rgba(0, 0, 0, 0.6) 55%,
+    transparent 100%
+  );
+          mask-image: radial-gradient(
+    circle var(--lens-radius) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    black 0%,
+    black 28%,
+    rgba(0, 0, 0, 0.6) 55%,
+    transparent 100%
+  );
+  filter: drop-shadow(0 8px 24px rgba(184, 33, 66, 0.25));
+  opacity: 0;
+  animation: candy-fade-in 1.4s var(--ease-smooth) 0.8s forwards;
 }
 
 .splash-content {
@@ -114,76 +130,21 @@ em { font-style: italic; }
   animation: rise-in 1.2s var(--ease-smooth) 0.3s forwards;
 }
 
-/* The wordmark — letters MADE OF CANDY via background-clip: text on a real
-   candy-material image. Two stacked layers, identical except for saturation.
-   Base = muted candy. Cursor reveal = vivid candy via soft radial mask. */
+/* Clean serif base wordmark — sits below the candy overlay. */
 .wordmark {
   position: relative;
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(3.6rem, 10vw, 9rem);
-  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
-  line-height: 0.92;
-  letter-spacing: -0.028em;
-  margin-bottom: 1.5rem;
-  user-select: none;
-  display: inline-block;
-  text-align: center;
-  /* fallback color in case background-clip not supported */
+  font-weight: 700;
+  font-size: clamp(3.4rem, 9.5vw, 8.5rem);
+  font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
   color: var(--cocoa);
-}
-
-.wordmark-base,
-.wordmark-candy {
-  display: block;
-  font: inherit;
-  background-image: url("assets/textures/candy-swirl.jpg");
-  background-size: 130% 220%;
-  background-position: 50% 45%;
-  background-repeat: no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); /* subtle separation from bg */
-}
-
-/* Base — muted candy material, slight desaturation. Reads as "off" but still candy. */
-.wordmark-base {
-  position: relative;
-  filter:
-    saturate(0.45)
-    brightness(1.05)
-    contrast(0.92)
-    drop-shadow(0 4px 12px rgba(76, 38, 28, 0.18));
-}
-
-/* Cursor reveal — full vibrant candy, masked to follow cursor */
-.wordmark-candy {
-  position: absolute;
-  inset: 0;
-  filter:
-    saturate(1.25)
-    contrast(1.08)
-    drop-shadow(0 6px 22px rgba(230, 48, 86, 0.55))
-    drop-shadow(0 0 10px rgba(255, 111, 181, 0.45));
-  -webkit-mask-image: radial-gradient(
-    circle var(--lens-radius) at var(--cursor-x) var(--cursor-y),
-    black 0%,
-    black 30%,
-    rgba(0, 0, 0, 0.6) 60%,
-    transparent 100%
-  );
-          mask-image: radial-gradient(
-    circle var(--lens-radius) at var(--cursor-x) var(--cursor-y),
-    black 0%,
-    black 30%,
-    rgba(0, 0, 0, 0.6) 60%,
-    transparent 100%
-  );
-  pointer-events: none;
-  opacity: 0;
-  animation: candy-fade-in 1.4s var(--ease-smooth) 1.1s forwards;
+  margin-bottom: 1.4rem;
+  user-select: none;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5),
+    0 12px 28px rgba(76, 38, 28, 0.16);
 }
 
 @keyframes candy-fade-in { to { opacity: 1; } }
@@ -225,33 +186,9 @@ em { font-style: italic; }
   opacity: 0;
   animation: rise-in 1.2s var(--ease-out-back) 1.7s forwards;
 }
-.enter-btn__base, .enter-btn__candy {
+.enter-btn__label {
   position: relative;
   display: inline-block;
-}
-.enter-btn__candy {
-  position: absolute;
-  inset: 0;
-  display: inline-flex;
-  align-items: center;
-  padding: 1.15rem 2.4rem;
-  background-image: url("assets/textures/candy-swirl.jpg");
-  background-size: 280% 220%;
-  background-position: center;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  filter: saturate(1.25) contrast(1.05) drop-shadow(0 2px 6px rgba(255, 255, 255, 0.6));
-  -webkit-mask-image: radial-gradient(
-    circle 220px at var(--cursor-x) var(--cursor-y),
-    black 0%, black 35%, rgba(0,0,0,0.6) 65%, transparent 100%
-  );
-          mask-image: radial-gradient(
-    circle 220px at var(--cursor-x) var(--cursor-y),
-    black 0%, black 35%, rgba(0,0,0,0.6) 65%, transparent 100%
-  );
-  pointer-events: none;
 }
 .enter-btn__arrow {
   font-size: 1.25rem;
@@ -1196,8 +1133,13 @@ em { font-style: italic; }
   .trust__inner { grid-template-columns: 1fr; }
   .splash { cursor: auto; }
   .cursor-pearl { display: none; }
-  .wordmark-candy { -webkit-mask-image: none; mask-image: none; opacity: 0.9; }
-  .enter-btn__candy { display: none; }
+  /* On touch devices: candy overlay shows in full (no cursor to drive the mask) */
+  .candy-overlay {
+    -webkit-mask-image: none;
+            mask-image: none;
+    opacity: 0.92;
+    background-size: 100vw auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1206,5 +1148,9 @@ em { font-style: italic; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .wordmark-candy { -webkit-mask-image: none; mask-image: none; opacity: 0.85; }
+  .candy-overlay {
+    -webkit-mask-image: none;
+            mask-image: none;
+    opacity: 0.85;
+  }
 }

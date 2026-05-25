@@ -15,21 +15,16 @@ let entering = false;
 const pearl = { tx: window.innerWidth / 2, ty: window.innerHeight / 2, x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
 /* -------------------------------------------------------
-   1. Cursor → CSS variables for the candy lens mask
-   Each masked element gets coordinates LOCAL to its own box.
+   1. Cursor → CSS variables on the splash.
+   The .candy-overlay (inset:0 of splash) reads these to drive
+   its radial mask. One source of truth, no per-element math.
    ------------------------------------------------------- */
-const wordmark = document.querySelector(".wordmark");
-
-function setLocalCursor(el, clientX, clientY) {
-  if (!el) return;
-  const r = el.getBoundingClientRect();
-  el.style.setProperty("--cursor-x", `${clientX - r.left}px`);
-  el.style.setProperty("--cursor-y", `${clientY - r.top}px`);
-}
-
 function setCursorPos(clientX, clientY) {
-  setLocalCursor(wordmark, clientX, clientY);
-  setLocalCursor(enterBtn, clientX, clientY);
+  if (splash) {
+    const r = splash.getBoundingClientRect();
+    splash.style.setProperty("--cursor-x", `${clientX - r.left}px`);
+    splash.style.setProperty("--cursor-y", `${clientY - r.top}px`);
+  }
   pearl.tx = clientX;
   pearl.ty = clientY;
 }
